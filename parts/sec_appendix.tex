@@ -1,0 +1,319 @@
+%%%%%%%%%%%%%%%
+	\begin{appendices}
+%%%%%%%%%%%%%%%
+\section{Proofs for the convergence of the sequence}\label{sec:pr-conv-seq}
+
+\subsection{Intermediate result}\label{sec:int-conv}
+We have the following Lemma.
+\begin{lemma}\label{lem:inter-conv} Let us define the following matrices, for $k\in\bbN,$ 
+\begin{align*}
+&M_{k,1}\eqdef[(1+b)\pa{G^k_{\theta}-G_{\theta}},-b\pa{G^k_{\theta}-G_{\theta}}],\\
+&M_{k,2}\eqdef[\Ppa{\pa{\ak-\bk}-\pa{a-b}}\Id+\pa{\bk-b}G^k_{\theta},-\Ppa{\pa{\ak-\bk}-\pa{a-b}}\Id-\pa{\bk-b}G^k_{\theta}]. 
+\end{align*}
+Then there exists $K$ large enough such that
+\[
+\normm{M_{k,2}\Ppa{X_{k}(\theta)-X^{\star}(\theta)}}=\normm{M_{k,1}\Ppa{X_{k}(\theta)-X^{\star}(\theta)}}=o\Ppa{\normm{X_{k}(\theta)-X^{\star}(\theta)}}=0.
+\]
+\end{lemma}
+\begin{proof} The proof of Lemma~\ref{lem:inter-conv}  can be found in a more general form in \cite[Proposition~27]{liang_activity_2017}.
+\end{proof}
+\subsection{Proof of Lemma~\ref{lem:LipFk}}\label{prf:lem:LipFk}
+\begin{proof}$~$ 
+The proof of the first claim comes directly from the Premise~\ref{prem_A1}, the definition of the scheme \eqref{eq:mapping} and straightforward differentiation.
+
+ For the second claim,  $\forall k\in\bbN,$   for any  $(X_1,\theta_1)$ and $(X_2,\theta_2)$ in $\bbR^n\times\bbR^n\times\Theta,$ we have that 
+ \begin{align*}
+ F_k(X_1,\theta_1)-F_k(X_2,\theta_2)&=F_k(x_1,z_1,\theta_1)-F_k(x_2,z_2,\theta_2)\\
+ &=\begin{pmatrix}
+\Ppa{\yak(x_1,z_1)-\yak(x_2,z_2)}-\gak\Ppa{\nabla f(\ybk(x_1,z_1),\theta_1)-\nabla f(\ybk(x_2,z_2),\theta_2)}\\
+x_1-x_2
+\end{pmatrix}
+ \end{align*}
+therefore by triangular inequality we get,
+\begin{multline*}
+\normm{F_k(X_1,\theta_1)-F_k(X_2,\theta_2)}^2\leq\normm{x_1-x_2}^2+ \normm{\yak(x_1,z_1)-\yak(x_2,z_2)}^2\\+\gak^2\normm{\nabla f(\ybk(x_1,z_1),\theta_1)-\nabla f(\ybk(x_2,z_2),\theta_2)}^2
+\end{multline*}
+On one hand we have  that 
+\[
+\normm{\yak(x_1,z_1)-\yak(x_2,z_2)}^2\leq\pa{1+\ak}^2\normm{x_1-x_2}^2+\ak^2\normm{z_1-z_2}^2,
+\]
+On the other hand, we use the fact that $\nabla_x f$ is $L-$Lipschitz continuous and the positivity of the norm to obtain that
+\[
+\normm{\nabla f(\ybk(x_1,z_1),\theta
+_1)-\nabla f(\ybk(x_2,z_2),\theta_2)}^2\leq L^2\Ppa{\pa{1+\bk}^2\normm{x_1-x_2}^2+\bk^2\normm{z_1-z_2}^2+\normm{\theta_1-\theta_2}^2}. 
+\]
+We sum each bounds and we arrive at  
+\begin{multline*}
+\normm{F_k(X_1,\theta_1)-F_k(X_2,\theta_2)}^2\leq \normm{x_1-x_2}^2\Ppa{1+\pa{1+\ak}^2+(\gak L)^2\pa{1+\bk}^2}+\\\normm{z_1-z_2}^2\Ppa{\ak^2
++\bk^2\pa{L\gak}^2}+\normm{\theta_1-\theta_2}^2,
+\end{multline*}
+hence we obtain,
+\begin{equation*}
+\normm{F_k(X_1,\theta)-F_k(X_2,\theta)}\leq\sqrt{\Ppa{1+\pa{1+\ak}^2+(\gak L)^2\pa{1+\bk}^2}}\sqrt{\normm{X_1-X_2}^2+\normm{\theta_1-\theta_2}^2}.
+\end{equation*}
+\end{proof}
+
+\subsection{Proof  of Proposition~\ref{pro:local-lin}}\label{prf:pro:local-lin}
+\begin{proof}$~$
+\begin{itemize}
+
+\item Claim~\ref{pro:local-lin1} easily follows  from Premise~\ref{prem_C1}. Indeed, we have that $\ak\to a$, $\bk\to b$ and $\gak \to \gamma$. Since $a,b\in[0,1]^2$ and $\gamma\in]0,2/L[$ thus  $(1+\ak)\to(1+a)$ , $\gak(1+\bk)\to\gamma(1+b)$ and $\gak\bk\to\gamma b$. This implies that
+\[
+ (1+\ak)\Id-\gak(1+\bk)\nabla_x^2f(\xsol,\theta)\to  (1+a)\Id-\gamma(1+b)\nabla_x^2f(\xsol,\theta),
+\]
+and 
+\[
+-\ak\Id+\gak\bk\nabla_x^2f(\xsol,\theta)\to -a\Id+\gamma b\nabla_x^2f(\xsol,\theta).
+\]
+hence $M_k\to M.$
+
+
+
+\item For Claim~\ref{pro:local-lin2}, let $\sigma$ be an eigenvalue of $M$ related to the eigenvector $\begin{pmatrix}r_1\\r_2\end{pmatrix}$ then we recall that $M=\begin{pmatrix} (a-b)\Id+(1+b)G_{\theta} &-(a-b)\Id-bG_{\theta} \\ \Id  & 
+		0\end{pmatrix}$.  Let $\eta_{\theta}$ be an eigenvalue of $G_{\theta},$  we have 			
+\begin{align*}
+M\begin{pmatrix}r_1\\r_2\end{pmatrix}=\begin{pmatrix} (a-b)r_1+(1+b)G_{\theta}r_1 -(a-b)r_2-bG_{\theta}r_2 \\ 
+		r_1\end{pmatrix}=\sigma\begin{pmatrix}r_1\\r_2\end{pmatrix}.
+\end{align*} 
+The second line of this identity means that $r_1=\sigma r_2$, we plug this in the first identity to get the following quadratic equation in $\sigma$
+\begin{equation}\label{eq:quad-sigma}
+\sigma^2-\Ppa{\pa{a-b}+\pa{1+b}\eta_{\theta}}\sigma+\pa{a-b}+b\eta_{\theta}=0.
+\end{equation}		
+Now, we have to solve \eqref{eq:quad-sigma} in terms of $\sigma$, this make look tedious at first sight but it is similar to the proof of \cite[Proposition~17]{liang_activity_2017}. They  found that the eigenvalues  $\sigma$ satisfying  \eqref{eq:quad-sigma} are such that $\rho(M)=\abs{\sigma}<1$ if and only if Premise~\ref{prem_C2} holds true.
+	
+		
+\item  Thanks to  Claim~\ref{pro:local-lin2}, to prove claim~\ref{pro:local-lin3}, we only have  to prove that their exist $K$ large enough such that
+\[
+\forall k\geq K, \quad X_{k+1}(\theta)-X^{\star}(\theta)=M\Ppa{X_{k}(\theta)-X^{\star}(\theta)}.
+\]
+Due to Remark~\ref{rem:conv-iters}, the sequence $\seq{X_{k}(\theta)}$ converges to the solution $X^{\star}(\theta)$  there exists  $K\in\bbN$ sufficiently large such that $X_{k}(\theta)$ is close enough to $X^{\star}(\theta)$. For $k\geq K,$ we have that  $\forall\theta\in\Theta$, 
+\begin{align*}
+\xkp\pa{\theta}-\xsol\pa{\theta}&=\yak-\xsol-\gak\nabla f\pa{\ybk,\theta},
+%&=\yak-\xsol-\gak\nabla_x^2f(\xsol,\theta)\Ppa{\ybk-\xsol}+o\Ppa{\normm{\ybk-\xsol}},
+\end{align*}
+By the Premise~\ref{prem_A}, we have  that the function $f$ is a $C^2-$smooth function, thus it is also twice differentiable in the extended sense according to \cite[Theorem~13.2]{rockafellar_variational_1998}. Hence, by \cite[Definition~13.1]{rockafellar_variational_1998} (Definition of twice diffrentiability in the extended sense), we have
+\begin{align*}
+\xkp\pa{\theta}-\xsol\pa{\theta}&=\yak-\xsol-\gak\BPa{\nabla_x^2 f\pa{\xsol,\theta}\pa{\ybk-\xsol}+o\pa{\normm{\ybk-\xsol}}},
+\end{align*}
+where we have used the optimality condition that $\nabla f\pa{\xsol,\theta}=0$. Let us observe that 
+\begin{align*}
+\normm{\ybk-\xsol}&=\normm{\pa{1+\ak}\Ppa{\xk-\xsol}-\ak\Ppa{\xkm-\xsol}},\\
+&\leq 2\Ppa{\normm{\xk-\xsol}+\normm{\xkm-\xsol}},\\
+&\leq 4\eps,
+\end{align*} 
+where we have chosen $K$ large enough such that $\forall k\geq K $ we get that $\xk$ and $\xkm$ are $\eps-$ sufficiently close to $\xsol$. We get  similarly that $\yak$ is sufficiently close to $\xsol,$ hence we have $o\pa{\normm{\ybk-\xsol}}=0.$ 
+
+Now, we expend $\yak$ and $\ybk$ to get that  
+\begin{align*}
+\xkp\pa{\theta}-\xsol\pa{\theta}=&\Big[\pa{1+\ak}\Id-\gak\pa{1+\bk}\nabla^2_xf\pa{\xsol,\theta}\Big]\pa{\xk-\xsol}\\&-\Big[\ak\Id-\gak\bk\nabla^2_xf\pa{\xsol,\theta}\Big]\pa{\xkm-\xsol}\\
+=&\Big[\pa{\ak-\bk}\Id-\gak\pa{1+\bk}G^k_{\theta}\quad -\pa{\ak-\bk}\Id+\gak\bk G^k_{\theta}\Big]\Ppa{X_k(\theta)-X^{\star}(\theta)},
+\end{align*}
+where we have denoted $\forall k\in\bbR^n,  G^k_{\theta}=\Id-\gak\nabla^2_xf\pa{\xsol,\theta}$. We get by adding an appropriate line  the following
+\begin{align*}
+X_{k+1}(\theta)-X^{\star}(\theta)=&\begin{pmatrix}\pa{\ak-\bk}\Id-\gak\pa{1+\bk}G^k_{\theta}&-\pa{\ak-\bk}\Id+\gak\bk G^k_{\theta}\\
+\Id&0
+\end{pmatrix}\Ppa{X_k(\theta)-X^{\star}(\theta)},\\
+=&\BPa{M+\begin{bmatrix}M_{k,1}\\0\end{bmatrix}+\begin{bmatrix}M_{k,2}\\0\end{bmatrix}}\Ppa{X_k(\theta)-X^{\star}(\theta)},
+\end{align*}
+where we have denoted 
+\begin{align*}
+&M_{k,1}\eqdef[(1+b)\pa{G^k_{\theta}-G_{\theta}},-b\pa{G^k_{\theta}-G_{\theta}}],\\
+&M_{k,2}\eqdef[\Ppa{\pa{\ak-\bk}-\pa{a-b}}\Id+\pa{\bk-b}G^k_{\theta},-\Ppa{\pa{\ak-\bk}-\pa{a-b}}\Id-\pa{\bk-b}G^k_{\theta}].
+\end{align*}
+Finally, we have 
+\begin{align*}
+\forall k\in\bbN,\normm{X_{k+1}(\theta)-X^{\star}(\theta)}\leq &\rho(M)\normm{X_{k}(\theta)-X^{\star}(\theta)}+\normm{M_{k,1}\Ppa{X_{k}(\theta)-X^{\star}(\theta)}}\\
+&+\normm{M_{k,2}\Ppa{X_{k}(\theta)-X^{\star}(\theta)}},\\
+\leq& \rho(M)\normm{X_{k}(\theta)-X^{\star}(\theta)},
+\end{align*}
+where we used the Lemma~\ref{lem:inter-conv} which state that 
+\[
+\normm{M_{k,2}\Ppa{X_{k}(\theta)-X^{\star}(\theta)}}=\normm{M_{k,1}\Ppa{X_{k}(\theta)-X^{\star}(\theta)}}=o\Ppa{\normm{X_{k}(\theta)-X^{\star}(\theta)}}=0.
+\]
+\end{itemize}
+\end{proof}
+
+\section{Toolbox for  differentiation}\label{sec:toolbox-ad}
+Consider an infinite interative process, according to Definition~\ref{def:codelist} given by the  triplet  $\calJ=\Ppa{\seq{\Phi_k},\Theta,\xo}$. We suppose that the generated sequence $\seq{\xk(\cdot)}$ is differentiable and moreover  derivative stable according to Definition~\ref{def:der-sta}. By the differentiability hypothesis  and the rule of derivation of composed functions, we have 
+\begin{equation}\label{eq:pdcf-rule}
+\forall k \in \bbN, \quad\partial_{\theta}\xkp(\theta)=J_x\Phi_k(\xk(\theta),\theta)\partial_{\theta}\xk(\theta)+J_{\theta}\Phi_k(\xk(\theta),\theta).
+\end{equation}
+ As suggested by \eqref{eq:pdcf-rule}, it turns out that that the convergence of the derivative depends on the Jacobians operator $J_{x}\Phi_k$ and $J_{\theta}\Phi_k$. Before we state the main Theorem,  let make the following premise. 
+ \begin{premise}\label{prem_apend} $~$
+\begin{enumerate}[label=(D.\arabic*)]
+ \item \label{prem_D1} The sequence of iterative maps $\seq{\Phi_k}$ converges to a certain function $\Phi$,
+ \item\label{prem_D2}  there exists a limit function $\avx(\theta)$ such that:  $\forall \theta\in\Theta,\quad\avx(\theta)=\Phi(\avx(\theta), \theta),$
+ \item \label{prem_D3} $J_x\Phi_k\to J_x\Phi\qandq J_{\theta}\Phi_k\to J_{\theta}\Phi,$
+ \item \label{prem_D4} $\forall\theta\in\Theta, \quad \rho\Ppa{J_x\Phi\pa{\avx(\theta),\theta}}<1.$
+\end{enumerate}
+\end{premise} 
+\begin{remark}\label{rem:prem_apend}$~$
+The first premise means that the sequence of the iterative maps $\seq{\Phi_k}$
+ has a limit which we denote $\Phi$, then the  second premise  is also natural since we are examining if the derivative has a limit. The third premise is more constructive and is deduced from \eqref{eq:pdcf-rule}. Since, we want the sequence of derivative to have a limit, it sufficient in this setting to make the   hypothesis that  partial Jacobians sequences  also converges. The last condition is an invertibility condition on the the squared matrice $J_{x}\Phi(\avx(\theta),\theta)$ to get  an explicit formula for $\partial_{\theta}\avx(\theta).$
+\end{remark}
+ 
+ We can state the convergence theorem as  the following result.
+ 
+\begin{theorem}\label{thm:deriv-stable} Let consider the following infinite iterative process $\calJ=\Ppa{\seq{\Phi_k},\Theta,\xo}$ according to Definition~\ref{def:codelist},  where $\Theta$ is an open subset of  $\bbR^m$ and $\avx(\cdot)$ the differentiable limit of $\seq{\xk}.$ 
+
+Under the Premise~\ref{prem_apend}, we have that the sequence $\seq{\xk}$ is derivative-stable and moreover we can write the limit derivative as: 
+\begin{centerbox}{black}{}y
+\begin{equation}\label{eq:deriv-limit}
+\forall \theta\in\Theta, \quad \partial_{\theta}\avx\pa{\theta}=\Ppa{\Id-J_x\Phi\pa{\avx(\theta),\theta}}^{-1}J_{\theta}\Phi\pa{\avx(\theta),\theta}.
+\end{equation}
+\end{centerbox}
+\end{theorem}
+
+\section{Proofs for the differentiation of inertial methods }\label{prf:ad-ima}
+
+\subsection{Proof of Theorem~\ref{thm:gim-stable}}\label{prf:thm:gim-stable}
+\begin{proof}
+Let first notice that from Lemma~\ref{lem:def-inf},  $\calA$ is an infinite iterative process. Therefore, the proof of Theorem~\ref{thm:gim-stable} will consist in applying Theorem~\ref{thm:deriv-stable}. To achieve this goal, we will prove that our infinite iterative process $\calA$  satisfies Premise~\ref{prem_apend}. 
+\paragraph{Part 1} \label{thm:gim-stable-part1}$~$  We recall that
+\[
+	F_k(X,\theta)= F_k(x,y,\theta)=\begin{pmatrix}
+\yak(x,y)-\gak\nabla f(\ybk(x,y),\theta)\\
+x
+\end{pmatrix}.
+\]
+Using Lemma~\ref{lem:LipFk}, for all $k\in\bbN, F_k$ is a continuously differentiable function. By  Premise~\ref{prem_C1}  $\ak\to a$, $\bk\to b$ and $\gak \to \gamma$ thus $\yak\pa{x,y}\to y_{a}\pa{x,y}\eqdef x+a\pa{x-y}$  and $\ybk\pa{x,y}\to y_{b}\pa{x,y}\eqdef x+b\pa{x-y}$. This implies that $\yak(x,y)-\gak\nabla f(\ybk(x,y),\theta)\to y_a(x,y)-\gamma\nabla f(y_b(x,y),\theta)$. Consequently, we get that $\forall \pa{X,\theta}=(x,y,\theta)\in\bbR^{n}\times\bbR^{n}\times\Theta$,
+\[
+F_k(X,\theta)\to F(X,\theta)= \begin{pmatrix}
+y_a(x,y)-\gamma\nabla f(y_b(x,y),\theta)\\
+x
+\end{pmatrix},
+\]
+which prove Premise~\ref{prem_D1}.
+\paragraph{Part 2}\label{thm:gim-stable-part2}$~$
+Thanks to the global convergence of the iterates generated by our scheme  Proposition~\ref{pro:conv-iters} and Remark~\ref{rem:conv-iters}, the sequence $\seq{X_k}$ converges to $X^{\star}(\theta)=\begin{pmatrix}\xsol(\theta)\\\xsol(\theta)\end{pmatrix}.$ Hence, we have 
+\begin{align*}
+ F(X^{\star}(\theta),\theta)= \begin{pmatrix}
+y_a(\xsol(\theta),\xsol(\theta))-\gamma\nabla f(y_b(\xsol(\theta),\xsol(\theta)),\theta)\\
+\xsol(\theta)
+\end{pmatrix}= \begin{pmatrix}
+\xsol(\theta)-\gamma\nabla f(\xsol(\theta),\theta)\\
+\xsol(\theta)
+\end{pmatrix}=X^{\star}(\theta),
+\end{align*}
+where we have used the optimality condition $\nabla f(\xsol(\theta),\theta)=0,$ which prove Premise~\ref{prem_D2}.
+\paragraph{Part 3}\label{thm:gim-stable-part3}$~$ For any $(X,\theta)=(x,y,\theta)\in\bbR^{n}\times\bbR^{n}\times\Theta$ we have that 
+\[
+	 	J_1F_k(X,\theta)= \begin{pmatrix} (1+\ak)\Id-\gak(1+\bk)\nabla_x^2f(\ybk(x,y),\theta) &-\ak\Id+\gak\bk\nabla_x^2f(\ybk(x,y),\theta) \\ \Id  & 
+		0\end{pmatrix}
+\]
+and 
+\[
+		 	J_2F_k(X\pa{\theta},\theta)= \begin{pmatrix} -\gak\nabla_{x\theta}^2f(\ybk(x,y),\theta)  \\  
+		0\end{pmatrix}.
+\]
+Similarly to Part 1, we use Premise~\ref{prem_C1} and we have that $\ak\to a$, $\bk\to b$ and $\gak \to \gamma$. Since $a,b\in[0,1]^2$ and $\gamma\in]0,2/L[$ thus  $(1+\ak)\to(1+a)$ , $\gak(1+\bk)\to\gamma(1+b)$ and $\gak\bk\to\gamma b$. This implies that
+\[
+ (1+\ak)\Id-\gak(1+\bk)\nabla_x^2f(\ybk(x,y),\theta)\to  (1+a)\Id-\gamma(1+b)\nabla_x^2f(y_b(x,y),\theta),
+\]
+
+\[
+-\ak\Id+\gak\bk\nabla_x^2f(\ybk(x,y),\theta)\to -a\Id+\gamma b\nabla_x^2f(y_b(x,y),\theta),
+\]
+and 
+\[
+-\gak\nabla_{x\theta}^2f(\ybk(x,y),\theta)\to-\gamma\nabla_{x\theta}^2f(y_b(x,y),\theta).
+\]
+Consequently, we get  
+\[
+J_1F_k(X,\theta)\to J_1F(X,\theta)= \begin{pmatrix} (1+a)\Id-\gamma(1+b)\nabla_x^2f(y_b(x,y),\theta) &-a\Id+\gamma b\nabla_x^2f(y_b(x,y),\theta)\\ \Id  & 
+		0\end{pmatrix}
+\]
+and 
+\[
+J_2F_k(X\pa{\theta},\theta)\to J_2F(X\pa{\theta},\theta)  \begin{pmatrix} -\gamma\nabla_{x\theta}^2f(y_b(x,y),\theta)  \\  
+		0\end{pmatrix},
+\]
+ which prove the Premise~\ref{prem_D3}. 
+ 
+ \paragraph{Part 4}\label{thm:gim-stable-part4}$~$
+For the last part, we applied Proposition~\ref{pro:local-lin}-\ref{pro:local-lin2}, since premise~\ref{prem_A}, \ref{prem_B}, \ref{prem_C} and the strong convexity hypothesis with respect to $x$ hold, we get that  the spectral radius of $M=J_1F(X^{\star},\theta)$ is such that $\rho(M)<1.$
+ 
+ \paragraph{Conclusion} $~$
+ From Part 1, 2, 3 and 4 we applied  Theorem~\ref{thm:deriv-stable} to get that the sequence $\seq{X_k}$ is derivative stable. Moreover we have  by \eqref{eq:deriv-limit}  the derivative limit is written as $\forall\theta\in\Theta,$
+ \begin{align*}
+ \partial_{\theta}X^{\star}\pa{\theta}&=\Ppa{\Id-J_1F(X^{\star}\pa{\theta},\theta)}^{-1}J_2F(X^{\star}\pa{\theta},\theta),\\ 
+ &=\begin{pmatrix} -a\Id+\gamma(1+b)\nabla_x^2f(\xsol(\theta),\theta) &a\Id-\gamma b\nabla_x^2f(\xsol\pa{\theta},\theta) \\ -\Id  & 
+		\Id\end{pmatrix}^{-1}\hspace{-0.2cm}\begin{pmatrix} -\gamma\nabla_{x\theta}^2f(\xsol,\theta)  \\  
+		0\end{pmatrix},
+ \end{align*}
+ which concludes the proof of the Theorem.
+\end{proof}
+
+\subsection{Proof  of Theorem~\ref{thm:conv-rat-der}}\label{prf:thm:conv-rat-der}
+
+\begin{proof}
+Let us first recall that by the rule of derivation of composed functions, we have the formula \eqref{eq:pdcf-rule} 
+\[
+ \forall k\in\bbN, \quad \partial_{\theta}X_{k+1}(\theta)=J_1F_k(X_k(\theta),\theta)\partial_{\theta}X_k(\theta)+J_2F_k(X_k(\theta),\theta).
+\]
+Thus on the limit, we have that 
+\[
+\partial_{\theta}X^{\star}(\theta)=J_1F(X^{\star}(\theta),\theta)\partial_{\theta}X^{\star}(\theta)+J_2F(X^{\star}(\theta),\theta).
+\]
+This yields to the following $\forall k\in\bbN,$
+\begin{align*}
+\partial_{\theta}X_{k+1}(\theta)-\partial_{\theta}X^{\star}(\theta)=&J_1F_k(X_k(\theta),\theta)\partial_{\theta}X_k(\theta)+J_2F_k(X_k(\theta),\theta)-J_1F(X^{\star}(\theta),\theta)\partial_{\theta}X^{\star}(\theta)\\
+&-J_2F(X^{\star}(\theta),\theta),\\
+=&\BPa{J_1F_k(X_k(\theta),\theta)+J_1F(X^{\star}(\theta),\theta)}\Ppa{\partial_{\theta}X_k(\theta)-\partial_{\theta}X^{\star}(\theta)}\\
+&+\BPa{J_2F_k(X_k(\theta),\theta)-J_2F(X^{\star}(\theta),\theta)}+\calE_k,
+\end{align*}
+where we set 
+\[
+\calE_k\eqdef J_1F_k(X_k(\theta),\theta)\partial_{\theta}X^{\star}\pa{\theta}-J_1F(X^{\star}(\theta),\theta)\partial_{\theta}X_k\pa{\theta}.
+\]
+Henceforth, we have the following bound 
+\begin{align*}
+\normm{\partial_{\theta}X_{k+1}(\theta)-\partial_{\theta}X^{\star}(\theta)}\leq&\normm{J_1F_k(X_k(\theta),\theta)+J_1F(X^{\star}(\theta),\theta)}\normm{\partial_{\theta}X_k(\theta)-\partial_{\theta}X^{\star}(\theta)}\\
+&+\normm{J_2F_k(X_k(\theta),\theta)-J_2F(X^{\star}(\theta),\theta)}+\normm{\calE_k},\\
+\leq&\BPa{\normm{J_1F_k(X_k(\theta),\theta)}+\normm{J_1F(X^{\star}(\theta),\theta)}}\normm{\partial_{\theta}X_k(\theta)-\partial_{\theta}X^{\star}(\theta)}\\
+&+\normm{J_2F_k(X_k(\theta),\theta)-J_2F(X^{\star}(\theta),\theta)}+\normm{\calE_k},
+\end{align*}
+It remains to properly bound each term of the previous inequality. 
+
+Let us recall that $\forall k\in\bbN, J_1F_k(X_k(\theta),\theta)$ is a continuous operator since $\forall k\in \bbN, F_k$ is $C^1-$smooth. Moreover, we have that $X_k(\theta)\to X^{\star}(\theta)$ and we have prove in Part~\ref{thm:gim-stable-part3} the sequence $J_1F_k(\cdot,\cdot)\to J_1F(\cdot,\cdot)$ which implies that $J_1F_k(X_k(\theta),\theta)\to J_1F(X^{\star}(\theta),\theta)$ hence their exists $K_1$ large enough such that we have
+\[
+\normm{J_1F_k(X_k(\theta),\theta)}\leq\normm{J_1F(X^{\star}(\theta),\theta)}+\eps_1,
+\]
+An analogous reasoning yields to the fact that their exists $K_2$ large enough such that
+\[
+\normm{J_2F_k(X_k(\theta),\theta)-J_2F(X^{\star}(\theta),\theta)}\leq \eps_2,
+\] 
+
+
+ Let us consider now $\normm{\calE_k}$, we have 
+\begin{align*}
+\normm{\calE_k}&=\normm{ J_1F_k(X_k(\theta),\theta)\partial_{\theta}X^{\star}\pa{\theta}-J_1F(X^{\star}(\theta),\theta)\partial_{\theta}X_k\pa{\theta}},
+\end{align*}
+ we get  that $\normm{\calE_k}\to0.$ This means that their exits $K_3$ large enough such that 
+ \[
+ \normm{\calE_k}\leq\eps_3, \forall k\geq K_3. 
+ \]
+By summing everything up, taking $K=\max\Ba{K_1,K_2,K_3}$ and $\eps=\min\Ba{\eps_1,\eps_2,\eps_3}$ we obtain that for all $k\geq K$ we have
+\begin{align*}
+\normm{\partial_{\theta}X_{k+1}(\theta)-\partial_{\theta}X^{\star}(\theta)}\leq&2\normm{J_1F(X^{\star}(\theta),\theta)}\normm{\partial_{\theta}X_k(\theta)-\partial_{\theta}X^{\star}(\theta)}+\eps\Ppa{2+\normm{\partial_{\theta}X^{\star}(\theta)}},\\
+\leq&2\rho\pa{M}\normm{\partial_{\theta}X_k(\theta)-\partial_{\theta}X^{\star}(\theta)}+\eps\Ppa{2+\normm{\partial_{\theta}X_k(\theta)-X^{\star}(\theta)}},
+\end{align*}
+this concludes the  proof of this Theorem. 
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%
+	\end{appendices}
+%%%%%%%%%%%%%%

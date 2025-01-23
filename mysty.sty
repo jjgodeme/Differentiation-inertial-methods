@@ -1,0 +1,1395 @@
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]\,\,}
+
+%%% packages--------------------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}
+
+
+\usepackage[square,numbers]{natbib}
+
+%\AtEveryCitekey{\clearfield{title}}
+
+\usepackage{ucs} 
+
+\usepackage{bm}
+
+\usepackage[toc,page]{appendix}
+\usepackage[english]{babel}
+\usepackage{t1enc}
+\usepackage{mathtools}
+\usepackage{amsmath,amscd}
+%\usepackage{dirtytalk}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{bbm}
+\usepackage{dsfont}
+\usepackage{cases}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{latexsym}
+\usepackage[colorlinks=true]{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor=red,         % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,        % color of links to bibliography
+    filecolor=magenta,     % color of file links
+    urlcolor=blue,         % color of external links
+}
+\usepackage[boxed,ruled,vlined]{algorithm2e}
+\usepackage{algorithmic}
+
+\usepackage[normalem]{ulem}
+\usepackage{cancel}
+\newcommand{\stkout}[1]{\ifmmode\text{\sout{\ensuremath{#1}}}\else\sout{#1}\fi}
+
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+\usepackage{subfig}
+%\usepackage{tensor}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\captionsetup{
+  font=footnotesize,
+  %justification=raggedright,
+  %singlelinecheck=false
+}
+\usepackage{epstopdf}
+
+\usepackage{xspace}
+\usepackage[thinlines]{easytable}
+
+
+% abstract, keywords, AMC class
+\newenvironment{@abssec}[1]{%
+\vspace{.05in}\small
+   \parindent .2in
+     {\upshape\bfseries #1. }\ignorespaces
+}
+{\par\vspace{.1in}}
+\renewenvironment{abstract}{\begin{@abssec}{\abstractname}}{\end{@abssec}}
+\newenvironment{keywords}{\begin{@abssec}{\keywordsname}}{\end{@abssec}}
+\newenvironment{notations}{\begin{@abssec}{\notationsname}}{\end{@abssec}}
+\newenvironment{acknowledgments}{\begin{@abssec}{\acknowledgmentsname}}{\end{@abssec}}
+\newenvironment{AMS}{\begin{@abssec}{\AMSname}}{\end{@abssec}}
+
+
+
+\renewcommand\abstractname{Abstract}
+\newcommand\notationsname{Notations}
+\newcommand\acknowledgmentsname{Acknowledgments}
+\newcommand\keywordsname{Key words}
+\newcommand\AMSname{AMS subject classifications}
+
+
+
+%%% equation number in section----------------------------------------------------------------------
+\numberwithin{equation}{section}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} 
+
+\DeclareMathAlphabet{\mathbfcal}{OMS}{cmsy}{b}{n}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+% \DeclareMathAlphabet{\mathscr}{OMS}{cmsy}{m}{n}
+% \DeclareMathAlphabet{\mathrsfs}{U}{rsfso}{m}{n}
+
+\newcommand{\pzcb}{\mathpzc{b}}
+\newcommand{\pzcm}{\mathpzc{m}}
+\newcommand{\pzci}{\mathpzc{i}}
+\newcommand{\ii}{\pzci}
+\newcommand{\mm}{\pzcm}
+
+\newcommand{\real}[1]{{#1}_{_\mathrm{Re}}}
+\newcommand{\img}[1]{{#1}_{_\mathrm{Im}}}
+\newcommand{\lev}{{\text{lev}}}
+
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\Romannumeral #1}
+
+%%% text color-------------------------------------------------------------------------------------
+\newcommand{\tcr}[1]{{\color{red}#1}}
+\newcommand{\tcg}[1]{{\color{green}#1}}
+\newcommand{\tcm}[1]{{\color{magenta}#1}}
+\newcommand{\tcb}[1]{{\color{black}#1}}
+
+\newcommand{\btcr}[1]{\noindent\textbf{\textcolor{red}{#1}}}
+\newcommand{\btcg}[1]{\noindent\textbf{\textcolor{green}{#1}}}
+\newcommand{\btcb}[1]{\noindent\textbf{\textcolor{blue}{#1}}}
+
+\newcommand{\todo}[1]{{\color{red}{[ToDo: #1]}}}
+\newcommand{\TBM}{\textbf{\textcolor{red}{(TBM...)}}}
+\newcommand{\DTBM}{\textbf{\textcolor{red}{($\downarrow$TBM...)}}}
+
+
+\newcommand{\Rm}{\bbR^{m}}
+\newcommand{\Rn}{\bbR^{n}}
+\newcommand{\RnV}{\bbR^{n}_{\mathsmaller{\scV}}}
+\newcommand{\RnM}{\bbR^{n}_{\mathsmaller{M}}}
+
+
+\newcommand{\ogamma}{\overbar{\gamma}}
+\newcommand{\ugamma}{\underline{\gamma}}
+
+%%% mathrm texts -----------------------------------------------------------------------------------
+\newcommand{\aff}{\mathrm{aff}}
+\newcommand{\crit}{\mathrm{crit}}
+\newcommand{\strisad}{\mathrm{strisad}}
+\newcommand{\si}{\mathrm{ if }}
+\newcommand{\odwz}{\mathrm{ otherwise }}
+\newcommand{\et}{\mathrm{ and }}
+\newcommand{\cnd}{\mathrm{cnd}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\bId}{\mathbf{Id}}
+%\newcommand{\proj}{\mathrm{Proj}}
+\newcommand{\proj}{\mathrm{P}}
+\newcommand{\normal}[1]{{\calN}_{#1}}
+\newcommand{\tangent}[1]{{\Tt}_{#1}}
+\newcommand{\prox}{\mathrm{prox}}
+\newcommand{\rprox}{\Rr}
+\newcommand{\resolvent}{\mathrm{J}}
+\newcommand{\rslt}{\mathrm{Rslt}}
+\newcommand{\dom}{\mathrm{dom }}
+\newcommand{\gra}{\mathrm{gph}~}
+\newcommand{\ran}{\mathrm{ran}}
+\newcommand{\Fix}{\mathrm{fix}}
+\newcommand{\fix}{\mathrm{fix}}
+\newcommand{\lip}{\mathrm{lip}}
+\newcommand{\reg}{\mathrm{reg}}
+\newcommand{\sri}{\mathrm{sri}}
+\newcommand{\subreg}{\mathrm{subreg}}
+\newcommand{\zero}{\mathrm{zer}}
+\newcommand{\zer}{\mathrm{zer}}
+\newcommand{\st}{\mathrm{s.t.}}
+\newcommand{\lsc}{\Gamma_0}
+\newcommand{\deriv}{\mathrm{D}}
+\newcommand{\detrm}[1]{\mathrm{det(#1)}}
+\newcommand{\bd}{\mathrm{bd}}
+\newcommand{\rbd}{\mathrm{rbd}}
+\newcommand{\inte}{\mathrm{int}}
+\newcommand{\dist}{\mathrm{dist}}
+\newcommand{\Dist}{\mathrm{Dist}}
+\newcommand{\setvalued}{\rightrightarrows}
+
+\newcommand{\sequence}[1]{\{#1\}_{k\in\bbN}}
+% \newcommand{\seq}[1]{\{#1\}_{k\in\bbN}}
+% \newcommand{\subseq}[1]{\{#1\}_{j\in\bbN}}
+\newcommand{\seq}[1]{\left(#1\right)_{k\in\bbN}}
+\newcommand{\subseq}[1]{\left(#1\right)_{j\in\bbN}}
+\newcommand{\kinN}{k\in\bbN}
+
+\newcommand{\utau}{\underline{\tau}}
+
+\newcommand{\Find}{\mathrm{find}}
+\newcommand{\find}{\mathrm{find}}
+\newcommand{\Proj}{\mathrm{Proj}}
+
+\newcommand{\betaV}{\beta_{{V}}}
+
+\newcommand{\pinf}{+\infty}
+\newcommand{\ninf}{-\infty}
+
+\newcommand{\mean}{\mathrm{mean}}
+\newcommand{\rank}{\mathrm{rank}}
+
+\newcommand{\bstar}{\bm*}
+
+\newcommand{\ustar}[1]{{#1}^\star}
+
+\newcommand{\ball}[2]{{\mathds{B}}_{#1}(#2)}
+
+\newcommand{\onenorm}{$\ell_{1}$-norm\xspace}
+\newcommand{\onetwonorm}{$\ell_{1,2}$-norm\xspace}
+\newcommand{\inftynorm}{$\ell_{\infty}$-norm\xspace}
+
+\newcommand{\abar}{\bar{a}}
+\newcommand{\aibar}{\overbar{a}_{\ii}}
+\newcommand{\akm}{a_{k-1}}
+\newcommand{\ak}{a_{k}}
+\newcommand{\aik}{a_{\ii,k}}
+\newcommand{\aki}{a_{\ii,k}}
+\newcommand{\akp}{a_{k+1}}
+% \newcommand{\ai}{a_{\ii}}
+
+\newcommand{\ai}{a_{\ii}}
+\newcommand{\bi}{b_{\ii}}
+\newcommand{\aim}{a_{\ii-1}}
+\newcommand{\bim}{b_{\ii-1}}
+
+\newcommand{\bbar}{\bar{b}}
+\newcommand{\bkm}{b_{k-1}}
+\newcommand{\bk}{b_{k}}
+\newcommand{\bik}{b_{\ii,k}}
+\newcommand{\bki}{b_{\ii,k}}
+\newcommand{\bkp}{b_{k+1}}
+% \newcommand{\bi}{b_{\ii}}
+
+\newcommand{\cbar}{\bar{c}}
+\newcommand{\ckm}{c_{k-1}}
+\newcommand{\ck}{c_{k}}
+\newcommand{\cki}{c_{k,i}}
+\newcommand{\ckp}{c_{k+1}}
+
+\newcommand{\dkm}{d_{k-1}}
+\newcommand{\dk}{d_{k}}
+\newcommand{\dkp}{d_{k+1}}
+
+\newcommand{\esol}{e^{\star}}
+\newcommand{\ekm}{e_{k-1}}
+\newcommand{\ek}{e_{k}}
+\newcommand{\ekp}{e_{k+1}}
+% 
+\newcommand{\ebarkm}{\overbar{e}_{k-1}}
+\newcommand{\ebark}{\overbar{e}_{k}}
+\newcommand{\ebarkp}{\overbar{e}_{k+1}}
+
+\newcommand{\gsol}{g^{\star}}
+\newcommand{\gbar}{\bar{g}}
+\newcommand{\gkm}{g_{k-1}}
+\newcommand{\gk}{g_{k}}
+\newcommand{\gkp}{g_{k+1}}
+
+
+\newcommand{\gmakm}{\gamma_{k-1}}
+\newcommand{\gmak}{\gamma_{k}}
+\newcommand{\gmakp}{\gamma_{k+1}}
+
+\newcommand{\lamkm}{\lambda_{k-1}}
+\newcommand{\lamk}{\lambda_{k}}
+\newcommand{\lamkp}{\lambda_{k+1}}
+
+\newcommand{\chikm}{\chi_{k-1}}
+\newcommand{\chik}{\chi_{k}}
+\newcommand{\chikp}{\chi_{k+1}}
+
+\newcommand{\phikm}{\phi_{k-1}}
+\newcommand{\phik}{\phi_{k}}
+\newcommand{\phikp}{\phi_{k+1}}
+
+\newcommand{\xikm}{\xi_{k-1}}
+\newcommand{\xik}{\xi_{k}}
+\newcommand{\xikp}{\xi_{k+1}}
+
+\newcommand{\psikm}{\psi_{k-1}}
+\newcommand{\psik}{\psi_{k}}
+\newcommand{\psikp}{\psi_{k+1}}
+
+\newcommand{\zetakm}{\zeta_{k-1}}
+\newcommand{\zetak}{\zeta_{k}}
+\newcommand{\zetakp}{\zeta_{k+1}}
+
+\newcommand{\rkm}{r_{k-1}}
+\newcommand{\rk}{r_{k}}
+\newcommand{\rkp}{r_{k+1}}
+
+\newcommand{\tkm}{t_{k-1}}
+\newcommand{\tk}{t_{k}}
+\newcommand{\tkp}{t_{k+1}}
+
+\newcommand{\usol}{u^{\star}}
+\newcommand{\ubar}{\bar{u}}
+\newcommand{\ukm}{u_{k-1}}
+\newcommand{\uk}{u_{k}}
+\newcommand{\uik}{u_{i,k}}
+\newcommand{\uikp}{u_{i,k+1}}
+\newcommand{\ukj}{u_{k_{j}}}
+\newcommand{\ukp}{u_{k+1}}
+
+\newcommand{\vsol}{v^{\star}}
+\newcommand{\visol}{v_{\ii}^{\star}}
+\newcommand{\vbar}{\bar{v}}
+\newcommand{\vkm}{v_{k-1}}
+\newcommand{\vk}{v_{k}}
+\newcommand{\vkj}{v_{k_{j}}}
+\newcommand{\vik}{v_{\ii, k}}
+\newcommand{\vkp}{v_{k+1}}
+\newcommand{\vikp}{v_{\ii, k+1}}
+
+\newcommand{\vkmi}{v_{k-\ii}}
+\newcommand{\vkmim}{v_{k-\ii-1}}
+\newcommand{\vkmip}{v_{k-\ii+1}}
+\newcommand{\vkmm}{v_{k-2}}
+\newcommand{\vkms}{v_{k-\tcr{s}}}
+
+\newcommand{\wsol}{w^{\star}}
+\newcommand{\wbar}{\bar{w}}
+\newcommand{\wkm}{w_{k-1}}
+\newcommand{\wk}{w_{k}}
+\newcommand{\wkj}{w_{k_{j}}}
+\newcommand{\wkp}{w_{k+1}}
+
+\newcommand{\xo}{x_{0}}
+\newcommand{\xsol}{x^{\star}}
+\newcommand{\fsol}{f^{\star}}
+\newcommand{\xpa}{x_{\star}}
+\newcommand{\xkm}{x_{k-1}}
+\newcommand{\xk}{x_{k}}
+\newcommand{\xkp}{x_{k+1}}
+%%%%Overline vgectors 
+\newcommand{\avx}{\bar{x}}
+\newcommand{\ava}{\bar{a}}
+\newcommand{\avm}{\overbar{m}}
+\newcommand{\avX}{\overbar{\calX}}
+\newcommand{\avy}{\bar{y}}
+
+\newcommand{\gak}{\gamma_{k}}
+\newcommand{\lk}{L_{k}}
+
+
+
+\newcommand{\xkmi}{x_{k-\ii}}
+\newcommand{\xkmim}{x_{k-\ii-1}}
+\newcommand{\xkmip}{x_{k-\ii+1}}
+\newcommand{\xkmm}{x_{k-2}}
+\newcommand{\xkms}{x_{k-\tcr{s}}}
+%
+\newcommand{\xtkm}{\tilde{x}_{k-1}}
+\newcommand{\xtk}{\tilde{x}_{k}}
+\newcommand{\xtkp}{\tilde{x}_{k+1}}
+
+\newcommand{\xbar}{\bar{x}}
+\newcommand{\xbarkm}{\bar{x}_{k-1}}
+\newcommand{\xbark}{\bar{x}_{k}}
+\newcommand{\xbarkp}{\bar{x}_{k+1}}
+
+\newcommand{\xkjm}{x_{k_j-1}}
+\newcommand{\xkj}{x_{k_j}}
+\newcommand{\xkjp}{x_{k_j+1}}
+% %
+\newcommand{\xjm}{x_{j-1}}
+\newcommand{\xj}{x_{j}}
+\newcommand{\xjp}{x_{j+1}}
+
+\newcommand{\ysol}{y^{\star}}
+\newcommand{\yisol}{y_{\ii}^{\star}}
+\newcommand{\ykm}{y_{k-1}}
+\newcommand{\yk}{y_{k}}
+\newcommand{\yik}{y_{\ii, k}}
+\newcommand{\ykp}{y_{k+1}}
+\newcommand{\yikp}{y_{\ii, k+1}}
+
+\newcommand{\ybar}{\bar{y}}
+\newcommand{\Te}{\textbf{T1}}
+\newcommand{\Tee}{\textbf{T2}}
+\newcommand{\yak}{y_{a,k}}
+\newcommand{\yakp}{y_{a,k+1}}
+\newcommand{\ybk}{y_{b,k}}
+\newcommand{\ybkp}{y_{b,k+1}}
+
+\newcommand{\yxk}{y_{x,k}}
+\newcommand{\yxkp}{y_{x,k+1}}
+\newcommand{\yvk}{y_{v,k}}
+\newcommand{\yvkp}{y_{v,k+1}}
+
+\newcommand{\yxak}{y_{x,a,k}}
+\newcommand{\yxakp}{y_{x,a,k+1}}
+\newcommand{\yvak}{y_{v,a,k}}
+\newcommand{\yvakp}{y_{v,a,k+1}}
+\newcommand{\yxbk}{y_{x,b,k}}
+\newcommand{\yxbkp}{y_{x,b,k+1}}
+\newcommand{\yvbk}{y_{v,b,k}}
+\newcommand{\yvbkp}{y_{v,b,k+1}}
+
+\newcommand{\zsol}{{z}^\star}
+\newcommand{\zisol}{{z}_{i}^\star}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\zkm}{{z}_{k-1}}
+\newcommand{\zk}{{z}_{k}}
+\newcommand{\zik}{{z}_{i,k}}
+\newcommand{\zkp}{{z}_{k+1}}
+\newcommand{\zfix}{{z}^\star}
+
+\newcommand{\zkmi}{z_{k-\ii}}
+\newcommand{\zkmim}{z_{k-\ii-1}}
+\newcommand{\zkmip}{z_{k-\ii+1}}
+\newcommand{\zkmm}{z_{k-2}}
+\newcommand{\zkms}{z_{k-\tcr{s}}}
+
+
+
+%%% in bold font
+\newcommand{\busol}{\bmu^{\star}}
+\newcommand{\bubar}{\bar{\bmu}}
+\newcommand{\bukm}{\bmu_{k-1}}
+\newcommand{\bukmi}{\tcr{\bmu_{k-\ii}}}
+\newcommand{\buk}{\bmu_{k}}
+\newcommand{\bukp}{\bmu_{k+1}}
+\newcommand{\bukpi}{\tcr{\bmu_{k+i}}}
+
+\newcommand{\bwsol}{\bmw^{\star}}
+\newcommand{\bwbar}{\bar{\bmw}}
+\newcommand{\bwkm}{\bmw_{k-1}}
+\newcommand{\bwkmi}{\tcr{\bmw_{k-\ii}}}
+\newcommand{\bwk}{\bmw_{k}}
+\newcommand{\bwkp}{\bmw_{k+1}}
+\newcommand{\bwkpi}{\tcr{\bmw_{k+i}}}
+
+\newcommand{\bxsol}{\bmx^{\star}}
+\newcommand{\bxbar}{\bar{\bmx}}
+\newcommand{\bxkm}{\bmx_{k-1}}
+\newcommand{\bxkmi}{\tcr{\bmx_{k-\ii}}}
+\newcommand{\bxk}{\bmx_{k}}
+\newcommand{\bxkp}{\bmx_{k+1}}
+\newcommand{\bxkpi}{\tcr{\bmx_{k+i}}}
+
+\newcommand{\bysol}{\bmy^{\star}}
+\newcommand{\bykm}{\bmy_{k-1}}
+\newcommand{\byk}{\bmy_{k}}
+\newcommand{\bykp}{\bmy_{k+1}}
+
+\newcommand{\bybar}{\bar{\bmy}}
+\newcommand{\byak}{\bmy_{a,k}}
+\newcommand{\byakp}{\bmy_{a,k+1}}
+\newcommand{\bybk}{\bmy_{b,k}}
+\newcommand{\bybkp}{\bmy_{b,k+1}}
+
+\newcommand{\bzsol}{{\bmz}^\star}
+\newcommand{\bzbar}{\bar{\bmz}}
+\newcommand{\bzkm}{{\bmz}_{k-1}}
+\newcommand{\bzk}{{\bmz}_{k}}
+\newcommand{\bzkp}{{\bmz}_{k+1}}
+\newcommand{\bzfix}{{\bmz}^\star}
+
+\newcommand{\bzkmi}{\bmz_{k-\ii}}
+\newcommand{\bzkmim}{\bmz_{k-\ii-1}}
+\newcommand{\bzkmip}{\bmz_{k-\ii+1}}
+\newcommand{\bzkmm}{\bmz_{k-2}}
+\newcommand{\bzkms}{\bmz_{k-\tcr{s}}}
+
+
+\newcommand{\lon}{\preceq}
+\newcommand{\slon}{\succeq}
+
+
+
+
+\newcommand{\tbm}{\btcr{TBM...}}
+
+\newcommand{\PT}[1]{\proj_{#1}}
+%\newcommand{\PV}{\proj_{V}}
+\newcommand{\PVc}{\proj_{V^\bot}}
+
+
+\newcommand{\xkVc}{x_{k}^{V^\bot}}
+\newcommand{\yV}{y^{V}}
+\newcommand{\yVc}{y^{V^\bot}}
+\newcommand{\ukVc}{u_{k}^{V^\bot}}
+\newcommand{\ukpVc}{u_{k+1}^{V^\bot}}
+\newcommand{\zV}{z^{V}}
+\newcommand{\zVc}{z^{V^\bot}}
+\newcommand{\zkV}{z_{k}^{V}}
+\newcommand{\zkpV}{z_{k+1}^{V}}
+\newcommand{\zkVc}{z_{k}^{V^\bot}}
+\newcommand{\zkpVc}{z_{k+1}^{V^\bot}}
+
+% \newcommand{\TJ}[1]{T_{#1}}
+% \newcommand{\PJ}{\mathrm{P}_{T_{\xsol}}}
+
+\newcommand{\Exp}{\mathrm{Exp}}
+\newcommand{\logexp}{\mathrm{logexp}}
+
+\newcommand{\etam}{\underline{\eta}}
+\newcommand{\etaM}{\overline{\eta}}
+\newcommand{\infeps}{\underline{\epsilon}}
+\newcommand{\supeps}{\overline{\epsilon}}
+
+\newcommand{\ueta}{\underline{\eta}}
+\newcommand{\oeta}{\overline{\eta}}
+
+
+%%% math symbols---------------------------------------------------------------------------------
+
+\newcommand{\pa}[1]{(#1)}
+\newcommand{\Pa}[1]{\big({#1}\big)}
+\newcommand{\bPa}[1]{\mathlarger{\big(}{#1}\mathlarger{\big)}}
+\newcommand{\BPa}[1]{\Big({#1}\Big)}
+\newcommand{\Ppa}[1]{\left({#1}\right)}
+
+\newcommand{\ba}[1]{\{#1\}}
+\newcommand{\Ba}[1]{\big\{#1\big\}}
+\newcommand{\bBa}[1]{\Big\{#1\Big\}}
+\newcommand{\Bba}[1]{\left\{#1\right\}}
+
+\newcommand{\am}{{\arg\min\xspace}}
+\newcommand{\AM}{{\Arg\min\xspace}}
+
+\newcommand{\weak}{\rightharpoonup}
+\newcommand{\strong}{\rightarrow}
+
+\newcommand{\Lrarrow}{\Leftrightarrow}
+\newcommand{\larrow}{\leftarrow}
+\newcommand{\rarrow}{\rightarrow}
+\newcommand{\Larrow}{\Leftarrow}
+\newcommand{\Rarrow}{\Rightarrow}
+
+%\renewcommand{\[}{\begin{equation}}
+%\renewcommand{\]}{\end{equation}}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+
+\newcommand{\beqn}{\begin{equation*}}
+\newcommand{\eeqn}{\end{equation*}}
+
+% \newcommand{\ssum}{\scriptstyle{\sum}\displaystyle}
+% \newcommand{\msum}{\mathsmaller{\sum}}
+\newcommand{\ssum}{\mathbin{\scalebox{0.9}{\ensuremath{\sum}}}}
+\newcommand{\msum}{\mathbin{\scalebox{1.25}{\ensuremath{\sum}}}}
+
+\newcommand{\mprod}{\mathbin{\scalebox{1.25}{\ensuremath{\prod}}}}
+
+
+\newcommand{\pfrac}[2]{
+    \frac{\raisebox{-0.125em}{\small $#1$}}{\raisebox{0.175em}{\small $#2$}}
+}
+\newcommand{\qfrac}[2]{%
+    {\mathsmaller{\frac{\raisebox{0.15em}{\small $#1$}}{\raisebox{-0.25em}{\small $#2$}}}}
+}
+
+\newcommand{\sfrac}[2]{%
+    {\mathsmaller{\frac{\raisebox{0.05em}{\footnotesize $#1$}}{\raisebox{-0.15em}{\footnotesize $#2$}}}}
+}
+
+% \renewcommand{\tfrac}{\Ltfrac}
+
+% \newcommand{\mcap}{\mathbin{\scalebox{1.5}{\ensuremath{\cap}}}}
+
+\newcommand{\bigtimes}{\mathbin{\scalebox{2}{\ensuremath{\times}}}}
+\newcommand{\sint}{\mathbin{\scalebox{1.5}{\ensuremath{\int}}}}
+% \newcommand{\sint}{\mathsmaller{\int}}
+
+\newcommand{\TVop}{D_{_{\small{\mathrm{DIF}}}}}
+\newcommand{\TV}[1]{\mathrm{TV}(#1)}
+\newcommand{\TVnorm}[1]{\norm{#1}_{\mathrm{TV}}}
+
+
+
+\newcommand{\norml}[1]{{\big|\kern-1.55pt\big|} #1 {\big|\kern-1.55pt\big|}}
+\newcommand{\bnorm}[1]{\bm{|\kern-1.125pt|} #1 \bm{|\kern-1.125pt|}}
+\newcommand{\Bnorm}[1]{\bm{\Big|\kern-1.25pt\Big|} #1 \bm{\Big|\kern-1.25pt\Big|}}
+
+\newcommand{\iprod}[2]{\langle #1,\,#2 \rangle}
+\newcommand{\bprod}[2]{\bm{\langle\kern-5pt\langle} #1,#2 \bm{\rangle\kern-5pt\rangle}}
+
+%%% math bold style-------------------------------------------------------------------------------
+\newcommand{\bmepsilon}{\bm{\varepsilon}}
+\newcommand{\bmrho}{\bm{\rho}}
+\newcommand{\bmgamma}{\bm{\gamma}}
+\newcommand{\bmeta}{\bm{\eta}}
+\newcommand{\bmupsilon}{\bm{\upsilon}}
+\newcommand{\bmpi}{\bm{\pi}}
+
+\newcommand{\bmGamma}{\bm{\Gamma}}
+\newcommand{\bmOmega}{\bm{\Omega}}
+
+%%% misc---------------------------------------------------------------------------------
+\renewcommand{~}{\,}
+\newcommand{\bAprga}{\bm{A}_{\bm{\gamma}}^\prime}
+
+%%% latin abbreviations----------------------------------------------------------------------------
+\newcommand{\cf}{\textit{cf.}\xspace}
+\newcommand{\eg}{\textit{e.g.}\xspace}
+\newcommand{\ie}{\textit{i.e.}\xspace}
+\newcommand{\iid}{i.i.d \xspace}
+\newcommand{\etal}{\textit{et al.\ }\xspace}
+\newcommand{\etc}{\textit{etc.}\xspace}
+\newcommand{\whp}{\textit{w.h.p} \xspace}
+\newcommand{\wrt}{\textit{w.r.t} \xspace}
+\newcommand{\wlogp}{\textit{w.l.o.g} \xspace}
+% matricial operators
+\newcommand{\transp}[1]{{#1}^{\!\top\!}}
+\newcommand{\adj}[1]{#1^{\bstar}}
+\newcommand{\pinv}[1]{{#1}^{{+}}}
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+% definition---------------------------------------------------------------------------------
+\newcommand{\eqdef}{\stackrel{\text{\rm\tiny def}}{=}}
+\newcommand{\equivdef}{\stackrel{\text{\tiny def}}{\Leftrightarrow}}
+
+%%% projection---------------------------------------------------------------------------------
+\newcommand{\orth}[1]{{#1}^\perp}
+
+\newcommand{\ProjS}{P_{\bcS}}
+\newcommand{\ProjSor}{P_{\bcS^\perp}}
+\newcommand{\projS}[1]{#1_{\bcS}}
+\newcommand{\projSor}[1]{#1_{\bcS^\perp}}
+
+\newcommand{\projV}[1]{#1_{\bcV}}
+\newcommand{\projVor}[1]{#1_{\bcV^\perp}}
+
+
+\newcommand{\frkt}{\tau}
+
+
+\newcommand{\wtilde}[1]{\mkern 1.25mu\widetilde{\mkern-1.25mu{#1}\mkern-1.25mu}\mkern 1.25mu}
+
+%%%%%%%%% Proba 
+\newcommand{\probP}{\text{I\kern-0.15em P}}
+
+%%% mathbb font---------------------------------------------------------------------------------
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+%%mathbbm
+\newcommand{\ind}{\mathbbm{1}}
+
+%%% mathbfcal font---------------------------------------------------------------------------------
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\calW}{\mathcal{W}}
+\newcommand{\calX}{\mathcal{X}}
+\newcommand{\calY}{\mathcal{Y}}
+\newcommand{\calZ}{\mathcal{Z}}
+
+%%% bold cal font---------------------------------------------------------------------------------
+\newcommand{\bcA}{\mathbfcal{A}}
+\newcommand{\bcB}{\mathbfcal{B}}
+\newcommand{\bcC}{\mathbfcal{C}}
+\newcommand{\bcD}{\mathbfcal{D}}
+\newcommand{\bcE}{\mathbfcal{E}}
+\newcommand{\bcF}{\mathbfcal{F}}
+\newcommand{\bcG}{\mathbfcal{G}}
+\newcommand{\bcH}{\mathbfcal{H}}
+\newcommand{\bcI}{\mathbfcal{I}}
+\newcommand{\bcJ}{\mathbfcal{J}}
+\newcommand{\bcK}{\mathbfcal{K}}
+\newcommand{\bcL}{\mathbfcal{L}}
+\newcommand{\bcM}{\mathbfcal{M}}
+\newcommand{\bcN}{\mathbfcal{N}}
+\newcommand{\bcO}{\mathbfcal{O}}
+\newcommand{\bcP}{\mathbfcal{P}}
+\newcommand{\bcQ}{\mathbfcal{Q}}
+\newcommand{\bcR}{\mathbfcal{R}}
+\newcommand{\bcS}{\mathbfcal{S}}
+\newcommand{\bcT}{\mathbfcal{T}}
+\newcommand{\bcU}{\mathbfcal{U}}
+\newcommand{\bcV}{\mathbfcal{V}}
+\newcommand{\bcW}{\mathbfcal{W}}
+\newcommand{\bcX}{\mathbfcal{X}}
+\newcommand{\bcY}{\mathbfcal{Y}}
+\newcommand{\bcZ}{\mathbfcal{Z}}
+
+
+%%% Bold Upper case
+\newcommand{\bmA}{\bm{A}}
+\newcommand{\bmB}{\bm{B}}
+\newcommand{\bmC}{\bm{C}}
+\newcommand{\bmD}{\bm{D}}
+\newcommand{\bmE}{\bm{E}}
+\newcommand{\bmF}{\bm{F}}
+\newcommand{\bmG}{\bm{G}}
+\newcommand{\bmH}{\bm{H}}
+\newcommand{\bmI}{\bm{I}}
+\newcommand{\bmJ}{\bm{J}}
+\newcommand{\bmK}{\bm{K}}
+\newcommand{\bmL}{\bm{L}}
+\newcommand{\bmM}{\bm{M}}
+\newcommand{\bmN}{\bm{N}}
+\newcommand{\bmO}{\bm{O}}
+\newcommand{\bmP}{\bm{P}}
+\newcommand{\bmQ}{\bm{Q}}
+\newcommand{\bmR}{\bm{R}}
+\newcommand{\bmS}{\bm{S}}
+\newcommand{\bmT}{\bm{T}}
+\newcommand{\bmU}{\bm{U}}
+\newcommand{\bmV}{\bm{V}}
+\newcommand{\bmW}{\bm{W}}
+\newcommand{\bmX}{\bm{X}}
+\newcommand{\bmY}{\bm{Y}}
+\newcommand{\bmZ}{\bm{Z}}
+
+%%% bold lower case
+\newcommand{\bma}{\bm{a}}
+\newcommand{\bmb}{\bm{b}}
+\newcommand{\bmc}{\bm{c}}
+\newcommand{\bmd}{\bm{d}}
+\newcommand{\bme}{\bm{e}}
+\newcommand{\bmf}{\bm{f}}
+\newcommand{\bmg}{\bm{g}}
+\newcommand{\bmh}{\bm{h}}
+\newcommand{\bmi}{\bm{i}}
+\newcommand{\bmj}{\bm{j}}
+\newcommand{\bmk}{\bm{k}}
+\newcommand{\bml}{\bm{l}}
+\newcommand{\bmm}{\bm{m}}
+\newcommand{\bmn}{\bm{n}}
+\newcommand{\bmo}{\bm{o}}
+\newcommand{\bmp}{\bm{p}}
+\newcommand{\bmq}{\bm{q}}
+\newcommand{\bmr}{\bm{r}}
+\newcommand{\bms}{\bm{s}}
+\newcommand{\bmt}{\bm{t}}
+\newcommand{\bmu}{\bm{u}}
+\newcommand{\bmv}{\bm{v}}
+\newcommand{\bmw}{\bm{w}}
+\newcommand{\bmx}{\bm{x}}
+\newcommand{\bmy}{\bm{y}}
+\newcommand{\bmz}{\bm{z}}
+
+%%% lower cases bold tilde
+\newcommand{\tbw}{\tilde{\bm{w}}}
+\newcommand{\tbz}{\tilde{\bm{z}}}
+
+%%% theorem environment-------------------------------------------------------------------------
+\makeatletter
+\def\th@plain{%
+  \thm@notefont{}% same as heading font
+  \itshape % body font
+}
+\def\th@definition{%
+  \thm@notefont{}% same as heading font
+  \normalfont % body font
+}
+\makeatother
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{%
+  \par\pushQED{\qed}\normalfont%
+  \topsep6\p@\@plus6\p@\relax
+  \trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]%
+  \ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+% thesisbody environment, handles text and other formatting 
+\newenvironment{thesisbody}{%
+    \clearpage
+    
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{lipsum}
+
+%\theoremstyle{break}
+
+
+%%% ------------------------------------------------------
+\theoremstyle{plain}% default
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{property}[theorem]{Property}
+%\newtheorem{assumption}[theorem]{Assumption}
+%%% ------------------------------------------------------
+\theoremstyle{definition}
+\newtheorem{alg}[theorem]{Algorithm}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Problem}
+%%% ------------------------------------------------------
+
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{commentary}[theorem]{Commentary}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{su}[theorem]{Summary}
+\newtheorem{dis}[theorem]{Discussion}
+\newtheorem{pp}[theorem]{Property}
+\newtheorem*{definition*}{Definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Assumption environment%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{assumption}{Assumption}
+\renewcommand{\theassumption}{\Alph{assumption}}
+
+\newtheorem{premise}{Premise}
+\renewcommand{\thepremise}{\Alph{premise}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%Latex Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newenvironment{proo}[1][Proof]{\textbf{#1.} }{\quad \rule{0.5em}{0.5em}}
+%\newenvironment{algo}[1][Algorithm]{\textbf{\\#1\\}}{\\}
+%\theoremstyle{plain}
+%\newtheorem{thm}{Theorem}[section]
+%\newtheorem{pv}[thm]{Proof}
+%\newtheorem{cor}[thm]{Corollary}
+%\newtheorem{lem}[thm]{Lemma}
+%\newtheorem{pro}[thm]{Proposition}
+%\newtheorem{prodf}[thm]{Proposition-Définition}
+%\newtheorem{rmk}[thm]{Remark}
+%\newtheorem{assumption}[thm]{Assumption}
+%\newtheorem{pp}[thm]{Property}
+%\newtheorem{pps}[thm]{Propriétés}
+%\newtheorem{df}[thm]{Definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Manifold
+\newcommand{\Msol}{\calM_{x^\star}}
+\newcommand{\Misol}{\calM_{x^\star}^{i}}
+\newcommand{\Tsol}{T_{x^\star}}
+
+
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu{#1}\mkern-1.5mu}\mkern 1.5mu}
+
+\newcommand{\barR}{\overbar{\bbR}}
+\newcommand{\barJ}{\overbar{J}}
+
+\newcommand{\MR}{{M}_{\barR}}
+\newcommand{\MJ}{{M}_{\barJ}}
+
+
+\newcommand{\HF}{{H}_{F}}
+\newcommand{\HG}{{H}_{G}}
+\newcommand{\HR}{{H}_{\barR}}
+\newcommand{\HJ}{{H}_{\barJ}}
+\newcommand{\WR}{{W}_{\barR}}
+\newcommand{\WJ}{{W}_{\barJ}}
+
+
+\newcommand{\tR}{\widetilde{R}}
+\newcommand{\tJ}{\widetilde{J}}
+
+\newcommand{\MtR}{{M}_{\tR}}
+\newcommand{\MtJ}{{M}_{\tJ}}
+\newcommand{\HtR}{{H}_{\tR}}
+\newcommand{\HtJ}{{H}_{\tJ}}
+\newcommand{\WtR}{{W}_{\tR}}
+\newcommand{\WtJ}{{W}_{\tJ}}
+
+\newcommand{\PR}{\proj_{T^R_{\xsol}}}
+\newcommand{\PJ}{\proj_{T^J_{\xsol}}}
+\newcommand{\PTR}[1]{\proj_{T^R_{#1}}}
+\newcommand{\PTJ}[1]{\proj_{T^J_{#1}}}
+
+
+% tangent plane of manifold
+\newcommand{\tgtManif}[2]{\Tt_{#1}(#2)}
+\newcommand{\tanSp}[2]{\Tt_{#1}(#2)}
+\newcommand{\tanSpO}[2]{\Tt_{#1}^{\bot}(#2)}
+\newcommand{\normSp}[2]{\calN_{#1}(#2)}
+\newcommand{\Wgtmap}[1]{\mathfrak{W}_{#1}}
+
+
+\newcommand{\PSF}[2]{\mathrm{PSF}_{#1}(#2)}
+\newcommand{\PSFL}[2]{\mathrm{PSFL}_{#1}(#2)}
+\newcommand{\PSFA}[2]{\mathrm{PSFA}_{#1}(#2)}
+\newcommand{\PSFAL}[2]{\mathrm{PSFAL}_{#1}(#2)}
+\newcommand{\PSFLS}[2]{\mathrm{PSFS}_{#1}(#2)}
+
+\newcommand{\PSO}[2]{\mathrm{PSO}_{#1}(#2)}
+\newcommand{\PSOL}[2]{\mathrm{PSOL}_{#1}(#2)}
+\newcommand{\PSOA}[2]{\mathrm{PSOA}_{#1}(#2)}
+\newcommand{\PSOAL}[2]{\mathrm{PSOAL}_{#1}(#2)}
+\newcommand{\PSOLS}[2]{\mathrm{PSOS}_{#1}(#2)}
+
+\newcommand{\eq}[1]{\begin{equation*}#1\end{equation*}}
+\newcommand{\eql}[1]{\begin{equation}#1\end{equation}}
+
+%\newcommand{\dim}{dim}
+% \newcommand{\Im}{Im}
+\newcommand{\Ker}{\mathrm{ker}}
+\renewcommand{\ker}{\Ker}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Tr}{\mathrm{tr}}
+%\newcommand{\sign}{sign}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\bsupp}{\supp_{\calB}}
+
+\newcommand{\Card}{\mathrm{card}}
+\newcommand{\Span}{\mathrm{span}}
+% \newcommand{\span}{span}
+\newcommand{\LinHull}{\mathrm{par}}
+\newcommand{\Vect}{\mathrm{vect}}
+\newcommand{\grad}{\mathrm{grad}}
+\newcommand{\diag}[1]{\mathrm{diag}(#1)}
+% \newcommand{\rank}{rank}
+\newcommand{\interop}{\mathrm{int}}
+\newcommand{\Aff}{\mathrm{aff}}
+\newcommand{\Lin}{\mathrm{par}}
+\newcommand{\ri}{\mathrm{ri}}
+
+% ensembles
+\newcommand{\ens}[1]{ \left\{ #1 \right\} }
+\newcommand{\ensB}[1]{ \left\{ #1 \right\} }
+\newcommand{\enscond}[2]{ \big\{ #1:\; #2 \big\} }
+\newcommand{\enscondlr}[2]{ \left\{ #1:\; #2 \right\} }
+
+% sub-space
+% \newcommand{\T}{T}
+% \renewcommand{\S}{S}
+
+\newcommand{\BFB}{B_{\mathrm{FB}}}
+\newcommand{\DAx}{D_{\avx}}
+\newcommand{\BAx}{B_{\avx}}
+\newcommand{\Vx}{V_{\avx}}
+
+
+% \newcommand{\Aff}{aff}
+% \newcommand{\Lin}{span}
+% \newcommand{\ri}{ri}
+% dual functional
+\newcommand{\Js}{\R^\circ}
+% sub-space
+\newcommand{\T}{T}
+\renewcommand{\S}{S}
+% gauge function
+\newcommand{\gauge}{\gamma}
+% vector with only 1.
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\e}[1]{e_{#1}}
+\newcommand{\f}[1]{f_{#1}}
+
+% operator norm 
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.35ex\left\vert\kern-0.35ex\left\vert #1 
+    \right\vert\kern-0.35ex\right\vert\kern-0.35ex\right\vert}}
+\newcommand{\avertiii}[1]{{\big\vert\kern-0.35ex\big\vert\kern-0.35ex\big\vert #1 
+    \big\vert\kern-0.35ex\big\vert\kern-0.35ex\big\vert}}    
+\newcommand{\normOP}[3]{ \vertiii{#1}_{#2\to#3} }
+\newcommand{\anormOP}[3]{ \norm{#1}{#2\to#3} }
+
+% unit ball
+\newcommand{\Ball}{\mathbb{B}}
+\newcommand{\BallInt}{\overset{o}{\Ball}}
+
+% matrix restricted to sub-spaces
+\newcommand{\AS}{A_\S}
+\newcommand{\AT}{A_\T}
+\newcommand{\SmallO}{\text{\tiny \upshape o}}
+\newcommand{\Sz}{\S_{0}}
+\newcommand{\Tz}{\T_{0}}
+\newcommand{\ez}{\e_{0}}
+
+\newcommand{\sATmin}{\sigma_{\min}}
+\newcommand{\sATmax}{\sigma_{\max}}
+\newcommand{\sAmax}{\sigma_{\mathrm{M}}}
+
+\newcommand{\infgam}{\underline{\gamma}}
+\newcommand{\supgam}{\overline{\gamma}}
+
+
+%%%%%%%%%%%%%%% SPACES %%%%%%%%%%%%%%%%%
+\newcommand{\qandq}{ \enskip \text{and} \enskip }
+\newcommand{\tandt}{ ~ \text{and} ~ }
+\newcommand{\qqandqq}{ \qquad \text{and} \qquad }
+\newcommand{\qorq}{ \enskip \text{or} \enskip }
+\newcommand{\qifq}{ \quad \text{if} \quad }
+\newcommand{\qqifqq}{ \qquad \text{as} \qquad }
+\newcommand{\qasq}{ \quad \text{as} \quad }
+\newcommand{\qqasqq}{ \qquad \text{if} \qquad }
+\newcommand{\qwhereq}{ \quad \text{where} \quad }
+\newcommand{\qqwhereqq}{ \qquad \text{where} \qquad }
+\newcommand{\qwithq}{ \quad \text{with} \quad }
+\newcommand{\qqwithqq}{ \qquad \text{with} \qquad }
+\newcommand{\qforallq}{ \quad \text{for all} \quad }
+\newcommand{\qforq}{ \quad \text{for} \quad }
+\newcommand{\qqforqq}{ \qquad \text{for} \qquad }
+\newcommand{\qqsinceqq}{ \qquad \text{since} \qquad }
+\newcommand{\qsinceq}{ \quad \text{since} \quad }
+\newcommand{\qarrq}{\quad\Longrightarrow\quad}
+\newcommand{\qqarrqq}{\quad\Longrightarrow\quad}
+\newcommand{\qiffq}{\quad\Longleftrightarrow\quad}
+\newcommand{\qqiffqq}{\qquad\Longleftrightarrow\qquad}
+\newcommand{\qsubjq}{ \quad \text{s.t.} \quad }
+\newcommand{\tsubjt}{ \; \text{s.t.} \; }
+\newcommand{\qqsubjqq}{ \qquad \text{s.t.} \qquad }
+\newcommand{\qobjq}[1]{\quad \text{#1} \quad}
+\newcommand{\qqobjqq}[1]{\quad \text{#1} \quad}
+
+
+
+\newcommand{\BD}{\calD_{{\Phi}}^{\vsol}\!}
+
+% \mathsmaller
+%%% fixed-point operator
+\newcommand{\FPO}{\mathrsfs{F}}
+
+\newcommand{\NEO}{\mathrsfs{R}}
+\newcommand{\NEOg}{\mathrsfs{R}_{\gamma}}
+\newcommand{\NEOgk}{\mathrsfs{R}_{\gmak}}
+
+\newcommand{\FDR}{\mathrsfs{F}_{\gamma}}
+\newcommand{\FDRg}{\mathrsfs{F}_{\gamma}}
+\newcommand{\FDRlg}{\mathrsfs{F}_{\lambda,\gamma}}
+\newcommand{\FDRgl}{\mathrsfs{F}_{\gamma,\lambda}}
+
+\newcommand{\FDRag}{\mathrsfs{F}_{1,\gamma}}
+\newcommand{\FDRagk}{\mathrsfs{F}_{1,\gamma_{k}}}
+\newcommand{\FDRbg}{\mathrsfs{F}_{2,\gamma}}
+\newcommand{\FDRbgk}{\mathrsfs{F}_{2,\gamma_{k}}}
+
+\newcommand{\FDRgk}{\mathrsfs{F}_{\gamma_k}}
+\newcommand{\FDRgkl}{\mathrsfs{F}_{\gamma_k,\lambda}}
+\newcommand{\FDRglk}{\mathrsfs{F}_{\gamma,\lambda_k}}
+\newcommand{\FDRgklk}{\mathrsfs{F}_{\gamma_k,\lambda_k}}
+
+
+\newcommand{\FDRk}{\mathrsfs{F}_{\gamma_{k}}}
+\newcommand{\FDRlk}{\mathrsfs{F}_{\lambda,\gamma_{k}}}
+\newcommand{\FDRlkk}{\mathrsfs{F}_{\lambda_k,\gamma_{k}}}
+
+\newcommand{\mFDR}{\mathrsfs{M}_{\gamma}}
+\newcommand{\mFDRg}{\mathrsfs{M}_{\gamma}}
+\newcommand{\mFDRginf}{\mathrsfs{M}_{\gamma}^{\infty}}
+\newcommand{\mFDRlg}{\mathrsfs{M}_{\lambda,\gamma}}
+\newcommand{\mFDRgl}{\mathrsfs{M}_{\gamma,\lambda}}
+
+\newcommand{\mFDRag}{\mathrsfs{M}_{1,\gamma}}
+\newcommand{\mFDRagk}{\mathrsfs{M}_{1,\gamma_{k}}}
+\newcommand{\mFDRbg}{\mathrsfs{M}_{2,\gamma}}
+\newcommand{\mFDRbgk}{\mathrsfs{M}_{2,\gamma_{k}}}
+
+\newcommand{\mFDRgk}{\mathrsfs{M}_{\gamma_k}}
+\newcommand{\mFDRgkl}{\mathrsfs{M}_{\gamma_k,\lambda}}
+\newcommand{\mFDRglk}{\mathrsfs{M}_{\gamma,\lambda_k}}
+\newcommand{\mFDRgklk}{\mathrsfs{M}_{\gamma_k,\lambda_k}}
+
+\newcommand{\fDR}{\FPO_{\mathrm{DR}}}
+\newcommand{\fFB}{\FPO_{\mathrm{FB}}}
+\newcommand{\fFDR}{\FPO_{\mathrm{FDR}}}
+\newcommand{\fTOS}{\FPO_{\mathrm{TOS}}}
+
+\newcommand{\fDRl}{\FPO_{\mathrm{DR},\lambda}}
+\newcommand{\fFBl}{\FPO_{\mathrm{FB},\lambda}}
+\newcommand{\fFDRl}{\FPO_{\mathrm{FDR},\lambda}}
+\newcommand{\fTOSl}{\FPO_{\mathrm{TOS},\lambda}}
+
+
+\newcommand{\TOS}{\mathrsfs{T}_{\gamma}}
+\newcommand{\TOSg}{\mathrsfs{T}_{\gamma}}
+\newcommand{\TOSgl}{\mathrsfs{T}_{\gamma,\lambda}}
+\newcommand{\TOSglk}{\mathrsfs{T}_{\gamma,\lambda_{k}}}
+
+\newcommand{\mTOS}{\mathrsfs{L}_{\gamma}}
+\newcommand{\mTOSg}{\mathrsfs{L}_{\gamma}}
+\newcommand{\mTOSginf}{\mathrsfs{L}_{\gamma}^{\infty}}
+\newcommand{\mTOSlg}{\mathrsfs{L}_{\lambda,\gamma}}
+\newcommand{\mTOSgl}{\mathrsfs{L}_{\gamma,\lambda}}
+
+
+\newcommand{\fFDRgk}{{\fFDR}_{\gmak}}
+
+\newcommand{\fFDRk}{{\fFDR}_{k}}
+\newcommand{\fFDRlk}{\FPO_{\mathrm{FDR},\lambda_{k}}}
+\newcommand{\lFPO}{M}
+\newcommand{\bFPO}{\bsF}
+\newcommand{\bFPOk}{\bsF_{k}}
+
+
+\newcommand{\Minf}{M^{\infty}}
+
+
+\newcommand{\mFB}{M_{\mathrm{FB}}}
+\newcommand{\mFBl}{M_{\mathrm{FB},\lambda}}
+\newcommand{\mFBinf}{M_{\mathrm{FB}}^{\infty}}
+
+\newcommand{\mDR}{M_{\mathrm{DR}}}
+\newcommand{\mDRl}{M_{\mathrm{DR},\lambda}}
+\newcommand{\mDRinf}{M_{\mathrm{DR}}^{\infty}}
+\newcommand{\rmL}{\mathrm{L}}
+
+
+\newcommand{\mFDRinf}{\mFDR^{\infty}}
+
+
+\newcommand{\rM}{M_{\lambda}}
+
+
+\usepackage[mathscr]{euscript} % for the mathscr font
+\usepackage{mathrsfs}
+
+%----------------------------------------  Scr Upper case ----------------------------------------%
+\newcommand{\scrA}{\mathscr{A}}
+\newcommand{\scrB}{\mathscr{B}}
+\newcommand{\scrC}{\mathscr{C}}
+\newcommand{\scrD}{\mathscr{D}}
+\newcommand{\scrE}{\mathscr{E}}
+\newcommand{\scrF}{\mathscr{F}}
+\newcommand{\scrG}{\mathscr{G}}
+\newcommand{\scrH}{\mathscr{H}}
+\newcommand{\scrI}{\mathscr{I}}
+\newcommand{\scrJ}{\mathscr{J}}
+\newcommand{\scrK}{\mathscr{K}}
+\newcommand{\scrL}{\mathscr{L}}
+\newcommand{\scrM}{\mathscr{M}}
+\newcommand{\scrN}{\mathscr{N}}
+\newcommand{\scrO}{\mathscr{O}}
+\newcommand{\scrP}{\mathscr{P}}
+\newcommand{\scrQ}{\mathscr{Q}}
+\newcommand{\scrR}{\mathscr{R}}
+\newcommand{\scrS}{\mathscr{S}}
+\newcommand{\scrT}{\mathscr{T}}
+\newcommand{\scrU}{\mathscr{U}}
+\newcommand{\scrV}{\mathscr{V}}
+\newcommand{\scrW}{\mathscr{W}}
+\newcommand{\scrX}{\mathscr{X}}
+\newcommand{\scrY}{\mathscr{Y}}
+\newcommand{\scrZ}{\mathscr{Z}}
+
+
+\newcommand{\Hsp}{\calH}
+\newcommand{\MvJ}{\calM_{\vsol}^{J}}
+\newcommand{\MvJc}{\calM_{\vsol}^{J^{*}}}
+\newcommand{\MvJic}{\calM_{\vsol_{\ii}}^{J_{\ii}^{*}}}
+
+\newcommand{\MyG}{\calM_{\ysol}^{G}}
+\newcommand{\MyGc}{\calM_{\ysol}^{G^{*}}}
+
+\newcommand{\MxJ}{\calM_{\xsol}^{J}}
+
+
+\newcommand{\MxR}{\calM_{\xsol}^{R}}
+\newcommand{\MxRc}{\calM_{\xsol}^{R^{*}}}
+\newcommand{\MxRic}{\calM_{\xsol_{i}}^{R_{i}^{*}}}
+
+\newcommand{\TG}[1]{T_{#1}^G}
+\newcommand{\TGc}[1]{T_{#1}^{G^*}}
+\newcommand{\TR}[1]{T_{#1}^R}
+\newcommand{\TRc}[1]{T_{#1}^{R^*}}
+\newcommand{\TJ}[1]{T_{#1}^J}
+\newcommand{\TJc}[1]{T_{#1}^{J^*}}
+% \newcommand{\TRc}[1]{T_{#1}^{R^*}}
+\newcommand{\TRic}[1]{T_{#1}^{R_{i}^*}}
+% \newcommand{\TR}[1]{T_{#1}^{R}}
+
+\newcommand{\SJ}[1]{S_{#1}^J}
+\newcommand{\SJc}[1]{S_{#1}^{J^*}}
+\newcommand{\SmJ}[1]{\boldsymbol{S}_{#1}^{\bmJ}}
+\newcommand{\SJi}[1]{S_{#1}^{J_i}}
+\newcommand{\SJs}[1]{S_{#1}^{J^*}}
+\newcommand{\SG}[1]{S_{#1}^G}
+\newcommand{\SGs}[1]{S_{#1}^{G^*}}
+
+\newcommand{\SR}[1]{S_{#1}^R}
+\newcommand{\SRc}[1]{S_{#1}^{R^*}}
+
+
+% TONY commands
+% Specific to FW paper
+\newcommand{\pinfty}{+\infty}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\pspace}{\bs{\mc{H}}_p}
+\newcommand{\comp}[2]{ #1 ^ { \left( #2 \right) }}
+\newcommand{\pcomp}[2]{ \para{#1} ^{ \para{#2} }}
+\newcommand{\gamcon}{\overline{M}}
+\newcommand{\gamconinf}{\underline{M}}
+\newcommand{\Mcstopt}{\tilde{M}}
+\newcommand{\gcon}{M}
+\newcommand{\Ccon}{R}
+\newcommand{\rhoinf}{\underline{\rho}}
+\newcommand{\rhosup}{\overline{\rho}}
+\newcommand{\V}{\mathcal{V}}
+\DeclareMathOperator*{\lmo}{lmo}
+\DeclareMathOperator*{\lpmo}{lpmo}
+\newcommand{\minx}{\tilde{x}}
+\newcommand{\minv}{\tilde{v}}
+\newcommand{\minu}{\tilde{u}}
+\newcommand{\minL}{\tilde{\mathcal{L}}}
+\newcommand{\PV}{\Pi_{\V}}
+\newcommand{\PVo}{\Pi_{\V^\perp}}
+% ENSICAEN commands
+\newcommand{\sst}{\substack}
+\newcommand{\conv}[1]{{\mathrm{conv}\left(#1\right)}}
+\newcommand{\cl}[1]{\overline{#1}}
+\newcommand{\clconv}[1]{{\cl{\mathrm{conv}}\left(#1\right)}}
+\newcommand{\breg}[4]{D_{#1}^{#2}\pa{#3,#4}}
+\newcommand{\nnewq}[1]{\begin{equation}\begin{split} #1 \end{split}\end{equation}}
+\newcommand{\nnewqml}[1]{\begin{multline} #1 \end{multline}}
+
+%%%%%%%%
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\Argmin}{Argmin}
+\newcommand{\prc}{\preccurlyeq}
+\newcommand{\bsl}{\backslash}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\s}[1]{\mathscr{#1}}
+\newcommand{\ip}[2]{\left\langle #1 \right\rangle_{ #2 }}
+\newcommand{\bsip}[2]{\bs{\langle\kern-5pt\langle} #1,#2 \bs{\rangle\kern-5pt\rangle}}
+\newcommand{\CS}[1]{\mathcal{C}^{ #1 }}
+%\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\newq}[1]{\begin{equation*}\begin{split} #1 \end{split}\end{equation*}}
+\newcommand{\newqml}[1]{\begin{multline*} #1 \end{multline*}}
+\newcommand{\dint}{\int\limits}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+%Commands from Chris Curtis
+\newcommand{\sech}{\mbox{sech}}
+
+\newcommand{\ea}{\end{array}}
+\newcommand{\p}{\partial}
+\newcommand{\bp}{\begin{pmatrix}}
+\newcommand{\ep}{\end{pmatrix}}
+%%%%
+\newcommand{\what}[1]{\widehat{ #1 }}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vrho}{\varrho}
+\newcommand{\epsi}{\epsilon}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\clos}[1]{\bar{#1}}
+\newcommand{\sbrac}[1]{\left[ #1 \right]}
+\newcommand{\bbrac}[1]{\llbracket #1 \rrbracket}
+\newcommand{\para}[1]{\left( #1 \right)}
+\newcommand{\absv}[1]{\left|#1\right|}
+\newcommand{\brac}[1]{\left\{ #1 \right\}}
+\newcommand{\norm}[2]{\left\Vert #1 \right\Vert_{ #2 }}
+\newcommand{\spec}{\mbox{Spec}}
+\newcommand{\deter}[1]{$det$\left| \begin{matrix} #1 \end{matrix} \right|}
+\newcommand{\mat}[1]{\begin{bmatrix} #1 \end{bmatrix}}\newcommand{\pmat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\imag}[1]{\mbox{Im}\left( #1 \right)}
+\newcommand{\cone}{\mbox{cone}} 
+\newcommand{\clcone}{\overline{\mbox{cone}}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%
+% Cesare Commands
+%%%%%%%%%%%%%%%%%%
+\newcommand{\HH}{\mathcal{H}}
+
+\newcommand{\NC}{\mathcal{N}}
+
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\diam}{d_{\C}}
+
+
+\def\eqref#1{{\rm (\ref{#1})}}
+\def\lemref#1{{\rm Lemma \ref{#1}}}
+\def\propref#1{{\rm Proposition \ref{#1}}}
+\def\thmref#1{{\rm Theorem \ref{#1}}}
+\def\defref#1{{\rm Definition \ref{#1}}}
+\def\secref#1{{\rm Section \ref{#1}}}
+\def\algref#1{{\rm Algorithm \ref{#1}}}
+\def\remref#1{{\rm Remark \ref{#1}}}
+
+
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\norrm}[1]{\|#1\|}
+%\newcommand{\norm}[1]{\left|\left|\left|#1\right|\right|\right|} %Norm
+\newcommand{\normm}[1]{\left\Vert {#1} \right\Vert}
+\newcommand{\normF}[1]{{\left\Vert {#1} \right\Vert}_{\mathrm{F}}}
+\newcommand{\scal}[2]{\langle #1, \ #2 \rangle}
+
+\newcommand{\LL}[1]{\mathcal{L} \left(#1\right)}
+
+\newcommand{\Ek}[1]{\mathcal{E}_k \left(#1\right)}
+
+\newcommand{\Etk}[1]{\tilde{\mathcal{E}}_k \left(#1\right)}
+
+\newcommand{\Eko}[1]{\mathcal{E}_k^0 \left(#1\right)}
+
+\newcommand{\Ekp}[1]{\mathcal{E}_{k+1} \left(#1\right)}
+
+\newcommand{\Lk}[1]{\mathcal{L}_k \left(#1\right)}
+
+\newcommand{\Lkp}[1]{\mathcal{L}_{k+1} \left(#1\right)}
+
+
+\newcommand{\Rcupinf}{\R\cup\{+\infty\}}
+
+
+
+\newcommand{\xs}{{x}^\star}
+
+\newcommand{\ys}{{y}^\star}
+
+\newcommand{\mus}{{\mu}^\star}
+
+\newcommand{\us}{\conj{u}}
+
+\newcommand{\gs}{\conj{g}}
+
+
+%%%---------------------------------------------- Create box for formulae--------------------------------------------------------%%%%%%%%%%%%%
+\usepackage{animate}
+	\usepackage[many]{tcolorbox}
+	% create a  fancybox, link: https://www.youtube.com/watch?v=k9qABnbX92o
+	\newtcolorbox{centerbox}[3]{colback=#1!10,colbacktitle=white, title= {#2}, coltitle=black, colframe=#1!40, boxsep=2mm, enhanced, attach boxed title to top center={yshift=-3mm}, 
+	boxed title style={
+		frame code={
+			\draw[tcb fill frame, #1!40]([xshift=-4mm]frame.west)--(frame.north west)--(frame.north east)--([xshift=4mm]frame.east)--(frame.south east)--(frame.south west)--([xshift=-4mm]frame.west);
+		},
+		interior code={
+			\draw[tcb fill interior]([xshift=-2mm]interior.west)--(interior.north west)--(interior.north east)--([xshift=2mm]interior.east)--(interior.south east)--(interior.south west)--([xshift=-2mm]interior.west);
+			}
+		}
+	}
+
+
+
+
+%---------------------------- ADDED AFTER YOU MADE THESIS
+\newcommand{\subseqi}[1]{\left(#1\right)_{i\in\bbN}}
+\newcommand{\rcom}[1]{{{#1}}}
+\newcommand{\rcomsec}[1]{{{#1}}}
+\newcommand{\subseql}[1]{\left(#1\right)_{l\in\bbN}}
+\newcommand{\mufne}{\mu'}
+
+%________________________________________________ My  commands_________________________________________________________
+\newcommand{\pscal}[1]{\left\langle {#1} \right\rangle} 
+\newcommand{\som}[1]{\frac{1}{m}\sum_{r=1}^m{#1}}
+\newcommand{\hsom}[1]{\frac{1}{2m}\sum_{r=1}^m{#1}}
+\newcommand{\qsom}[1]{\frac{1}{4m}\sum_{r=1}^m{#1}}
+\newcommand{\Som}[1]{\sum_{r=1}^m{#1}}
+\newcommand{\loss}[2]{\left(#1-#2\right)^2}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\croch}[1]{\left\{#1\right\}}
+\newcommand{\valabs}[1]{\left|#1\right|}
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\esp}[1]{\mathbb{E}\left(#1\right)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newlength\mylenA
+
+\newcommand*\xoverline[2][0.9]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+
